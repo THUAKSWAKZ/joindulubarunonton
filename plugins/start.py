@@ -40,7 +40,7 @@ async def start_command(client: Client, message: Message):
                 ids = [int(int(argument[1]) / abs(client.db_channel.id))]
             except:
                 return
-        temp_msg = await message.reply("Please wait...")
+        temp_msg = await message.reply("TUNGGUIN YA BENTAR KOK...")
         try:
             messages = await get_messages(client, ids)
         except:
@@ -73,7 +73,7 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🤴 My Master", callback_data = "about"),
+                    InlineKeyboardButton("🤴 MY KING", callback_data = "about"),
                     InlineKeyboardButton("Oke", callback_data = "close")
                 ]
             ]
@@ -94,14 +94,14 @@ async def start_command(client: Client, message: Message):
 
 @Bot.on_message(filters.command('start') & filters.private)
 async def not_joined(client: Client, message: Message):
-    text = "<b>MAAP, AKSES NONTON VIDIO DITOLAK!!!\n\nKamu harus join channel dulu Baru Bisa Akses Vidio</b>"
+    text = "<b>MAAF, AKSES NONTON VIDIO DITOLAK!!!\n\nKamu harus bergabung  dulu Baru Bisa Akses Vidio</b>"
     message_text = message.text
     try:
         command, argument = message_text.split()
-        text = text + f" <b>DI <a href='https://t.me/{client.username}?start={argument}'>COBA LAGI</a></b>"
+        text = text + f" <b>LALU <a href='https://t.me/{client.username}?start={argument}'>COBA LAGI</a></b>"
     except ValueError:
         pass
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("BERGABUNG CHANNEL", url = client.invitelink)]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("BERGABUNG DISINI", url = client.invitelink)]])
     await message.reply(
         text = text,
         reply_markup = reply_markup,
